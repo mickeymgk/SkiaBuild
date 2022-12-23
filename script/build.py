@@ -17,6 +17,7 @@ def main():
 
   args += [
     'target_cpu="' + machine + '"',
+    'is_component_build=true',
     'skia_use_system_expat=false',
     'skia_use_system_libjpeg_turbo=false',
     'skia_use_system_libpng=false',
@@ -26,12 +27,12 @@ def main():
     'skia_use_freetype=true',
     # 'skia_use_harfbuzz=true',
     'skia_use_system_harfbuzz=false',
-    'skia_pdf_subset_harfbuzz=true',
+    'skia_pdf_subset_harfbuzz=false',
     # 'skia_use_icu=true',
     'skia_use_system_icu=false',
     # 'skia_enable_skshaper=true',
     # 'skia_enable_svg=true',
-    'skia_enable_skottie=true'
+    'skia_enable_skottie=false'
   ]
 
   if 'macos' == system:
@@ -56,9 +57,10 @@ def main():
     ]
   elif 'windows' == system:
     args += [
-      'skia_use_system_freetype2=false',
+      'skia_use_system_freetype2=true',
       # 'skia_use_angle=true',
-      'skia_use_direct3d=true',
+      # 'skia_use_direct3d=true',
+      'skia_use_gl=true',
       'extra_cflags=["-DSK_FONT_HOST_USE_SYSTEM_SETTINGS"]',
     ]
   elif 'android' == system:
